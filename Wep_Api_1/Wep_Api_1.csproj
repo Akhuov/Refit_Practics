@@ -13,8 +13,11 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Entities\" />
-    <Folder Include="AppContext\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Wep_1.Application\Wep_1.Application.csproj" />
+    <ProjectReference Include="..\Wep_1.Infrastructure\Wep_1.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
