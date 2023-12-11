@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Wep_1.Domain;
+using Wep_1.Domain.Entities;
 
 namespace Wep_1.Application.Absreactions
 {

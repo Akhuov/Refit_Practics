@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Wep_1.Application.Absreactions;
 using Wep_1.Application.UseCases.Users.Commands;
-using Wep_1.Domain;
+using Wep_1.Domain.Entities;
 
 namespace Wep_1.Application.UseCases.Users.Handels
 {
@@ -17,12 +17,12 @@ namespace Wep_1.Application.UseCases.Users.Handels
         {
             try
             {
-                var newUser = new User 
+                var newUser = new User
                 {
                     Name = request.Name,
                 };
 
-                var res = _context.Users.Add(newUser);
+                var res = await _context.Users.AddAsync(newUser);
 
                 return $" {res} \n UserCreated Name = {newUser.Name}";
             }

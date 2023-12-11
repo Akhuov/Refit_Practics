@@ -1,28 +1,28 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Wep_1.Application.Absreactions;
-using Wep_1.Application.UseCases.Users.Queries;
+using Wep_1.Application.UseCases.Products.Queries;
 using Wep_1.Domain.Entities;
 
 namespace Wep_1.Application.UseCases.Users.Handels
 {
-    public class GetAllUsersCommandHandler : IRequestHandler<GetAllUsersCommand, List<User>>
+    public class GetAllProductsCommandHandler : IRequestHandler<GetAllProductsCommand, List<Product>>
     {
         private readonly IApplicationContext _context;
-        public GetAllUsersCommandHandler(IApplicationContext context)
+        public GetAllProductsCommandHandler(IApplicationContext context)
         {
             _context = context;
         }
 
-        public async Task<List<User>> Handle(GetAllUsersCommand request, CancellationToken cancellationToken)
+        public async Task<List<Product>> Handle(GetAllProductsCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var users = await _context.Users.AsNoTracking().ToListAsync();
-                if (users != null)
+                var res = await _context.Products.AsNoTracking().ToListAsync();
+                if (res != null)
                 {
 
-                    return users;
+                    return res;
                 }
                 throw new Exception("Users not Found!!");
             }

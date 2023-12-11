@@ -4,10 +4,10 @@ using Wep_1.Application.UseCases.Users.Commands;
 
 namespace Wep_1.Application.UseCases.Users.Handels
 {
-    public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, string>
+    public class DeleteProductCommandHandler : IRequestHandler<DeleteUserCommand, string>
     {
         private readonly IApplicationContext _context;
-        public DeleteUserCommandHandler(IApplicationContext context)
+        public DeleteProductCommandHandler(IApplicationContext context)
         {
             _context = context;
         }

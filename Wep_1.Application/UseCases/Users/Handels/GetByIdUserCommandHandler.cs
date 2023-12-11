@@ -1,13 +1,8 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Wep_1.Application.Absreactions;
 using Wep_1.Application.UseCases.Users.Queries;
-using Wep_1.Domain;
+using Wep_1.Domain.Entities;
 
 namespace Wep_1.Application.UseCases.Users.Handels
 {
@@ -23,7 +18,7 @@ namespace Wep_1.Application.UseCases.Users.Handels
         {
             try
             {
-                var user = await _context.Users.FirstOrDefaultAsync(x=>x.Id == request.Id);
+                var user = await _context.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == request.Id);
                 if (user != null)
                 {
 
