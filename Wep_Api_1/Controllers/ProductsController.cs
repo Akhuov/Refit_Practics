@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Wep_1.Application.UseCases.Products.Commands;
 using Wep_1.Application.UseCases.Products.Queries;
-using Wep_1.Application.UseCases.Users.Queries;
 using Wep_1.Domain.Entities;
 using Wep_Api_1.Dtos;
 
@@ -32,6 +31,7 @@ namespace Wep_Api_1.Controllers
                 };
 
                 var res = await _mediator.Send(command);
+                _memoryCache.Remove("Products_key");
                 return Ok(res);
             }
             catch (Exception ex)
@@ -65,14 +65,12 @@ namespace Wep_Api_1.Controllers
         {
             try
             {
-                var value = _memoryCache.Get("Product_key");
-                if (value == null)
+                var res = await _mediator.Send(new GetByIdProductCommand() { Id = id });
+                if(res == null)
                 {
-                    _memoryCache.Set(
-                    key: "Product_key",
-                        value: await _mediator.Send(new GetByIdProductCommand()));
+                    throw new Exception();
                 }
-                return Ok(_memoryCache.Get("Product_key") as Product);
+                return Ok(res);
             }
             catch (Exception ex)
             {
@@ -86,10 +84,12 @@ namespace Wep_Api_1.Controllers
         {
             try
             {
-                var res = await _mediator.Send(new DeleteProductCommand() {Id = id });
+                var res = await _mediator.Send(new DeleteProductCommand() { Id = id });
 
                 if (res == null)
-                    throw new Exception("User Not Found!!");
+                    throw new Exception("Product Not Found!!");
+
+                _memoryCache.Remove("Products_key");
                 return Ok(res);
             }
             catch (Exception ex)
@@ -106,7 +106,8 @@ namespace Wep_Api_1.Controllers
                 var res = await _mediator.Send(UpdateProductAsync(id));
 
                 if (res == null)
-                    throw new Exception("User Not Found!!");
+                    throw new Exception("Product Not Found!!");
+                _memoryCache.Remove("Product_key");
                 return Ok(res);
             }
             catch (Exception ex)

@@ -5,7 +5,7 @@ using Wep_1.Domain.Entities;
 
 namespace Wep_1.Application.UseCases.Products.Handlers
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, string>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, string>//Asyc
     {
         private readonly IApplicationContext _context;
         public CreateProductCommandHandler(IApplicationContext context)
@@ -23,6 +23,7 @@ namespace Wep_1.Application.UseCases.Products.Handlers
                 };
 
                 var res = await _context.Products.AddAsync(product);
+                await _context.SaveChangesAsync(cancellationToken);
 
                 return $" {res} \n ProductCreated Name = {product.Name}";
             }

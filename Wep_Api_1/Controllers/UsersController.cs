@@ -43,14 +43,11 @@ namespace Wep_Api_1.Controllers
         {
             try
             {
-                var value = _memoryCache.Get("Users_key");
-                if (value == null)
-                {
-                    _memoryCache.Set(
-                    key: "Users_key",
-                        value: await _mediator.Send(new GetAllUsersCommand()));
-                }
-                return Ok(_memoryCache.Get("Users_key") as List<User>);
+                var res = await _mediator.Send(new GetAllUsersCommand());
+
+                if (res == null)
+                    throw new Exception("Users Not Found!!");
+                return Ok(res);
             }
             catch (Exception ex)
             {
@@ -59,7 +56,7 @@ namespace Wep_Api_1.Controllers
         }
 
         [HttpGet]
-        public async ValueTask<IActionResult> GetByIdUserAsync([FromForm]int id)
+        public async ValueTask<IActionResult> GetByIdUserAsync([FromForm] int id)
         {
             try
             {
@@ -112,5 +109,5 @@ namespace Wep_Api_1.Controllers
             }
         }
     }
-    
+
 }
