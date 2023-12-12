@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wep_1.Infrastructure", "Wep
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthentificationLayer", "AuthentificationLayer", "{9742AD15-BB60-48C5-ACFD-F2BB149480FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationWebAPi", "AuthenticationWebAPi\AuthenticationWebAPi.csproj", "{0F09E05A-080F-4A55-8AE3-D299E12B21A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationWebAPi", "AuthenticationWebAPi\AuthenticationWebAPi.csproj", "{0F09E05A-080F-4A55-8AE3-D299E12B21A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWTAuthentificationManager", "JWTAuthentificationManager\JWTAuthentificationManager.csproj", "{F816FFDE-10DD-424C-8FFE-705E20100114}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JWTAuthentificationManager", "JWTAuthentificationManager\JWTAuthentificationManager.csproj", "{F816FFDE-10DD-424C-8FFE-705E20100114}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exaples_", "Exaples_\Exaples_.csproj", "{7B68E268-9B98-4145-8770-B60BC221D369}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{F816FFDE-10DD-424C-8FFE-705E20100114}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F816FFDE-10DD-424C-8FFE-705E20100114}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F816FFDE-10DD-424C-8FFE-705E20100114}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B68E268-9B98-4145-8770-B60BC221D369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B68E268-9B98-4145-8770-B60BC221D369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B68E268-9B98-4145-8770-B60BC221D369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B68E268-9B98-4145-8770-B60BC221D369}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{9742AD15-BB60-48C5-ACFD-F2BB149480FC} = {AF878DE1-48F0-466C-90C3-919AF2030DF7}
 		{0F09E05A-080F-4A55-8AE3-D299E12B21A6} = {9742AD15-BB60-48C5-ACFD-F2BB149480FC}
 		{F816FFDE-10DD-424C-8FFE-705E20100114} = {9742AD15-BB60-48C5-ACFD-F2BB149480FC}
+		{7B68E268-9B98-4145-8770-B60BC221D369} = {AF878DE1-48F0-466C-90C3-919AF2030DF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {21C3C178-139D-471A-BF22-854BB821D396}
